@@ -2,6 +2,8 @@ import React,{useState, useEffect} from 'react'
 import Navigation from './components/NavigationBar'
 import {useParams} from 'react-router-dom'
 
+const BACKEND_SERVER_URL = process.env.REACT_APP_BACKEND_SERVER_URL
+
 export default function Details(props) {
 
     const {id} = useParams()
@@ -10,7 +12,7 @@ export default function Details(props) {
 
 
     const getData = async () => {
-        let url =`http://localhost:3001/jobs/${id}`;
+        let url =`${BACKEND_SERVER_URL}/jobs/${id}`;
         let data = await fetch(url);
         let result = await data.json();
         console.log(result)
