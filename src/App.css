@@ -67,6 +67,8 @@ text-align: center;
 font-size: 2rem;
 }
 
+
+/* Login-form */
 #login-form{
   width: 50%;
 	border-radius: 20px;
@@ -86,9 +88,11 @@ font-size: 2rem;
 	justify-content: center;
 	color: #fff;
 }
-.login .fa-android{
-	font-size:3em;
+
+#company-logo{
+	width:100%;
 }
+
 @media screen and (max-width: 640px) {
 	.login .main-content{width: 90%;}
 	.login .company__info{
@@ -135,14 +139,27 @@ form{
 	transition: all .5s ease;
 	width: 70%;
 	border-radius: 30px;
-	color:#008080;
+	color:lightcoral;
 	font-weight: 600;
 	background-color: #fff;
-	border: 1px solid #008080;
+	border: 1px solid lightcoral;
 	margin-top: 1.5em;
 	margin-bottom: 1em;
 }
 .login .btn:hover, .btn:focus{
-	background-color: #008080;
+	background-color: lightcoral;
 	color:#fff;
+}
+
+/* end login-form */
+
+/* detail page */
+
+/* end detail page */
+
+/* 404 page */
+#404page{
+	display:flex;
+	justify-content: center;
+	align-items: center;
 }

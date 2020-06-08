@@ -1,5 +1,6 @@
 import React from 'react'
 import Navigation from './components/NavigationBar'
+import JobLogo from './components/job-logo2.png'
 
 export default function Login() {
     return (
@@ -8,8 +9,8 @@ export default function Login() {
             <div className="container-fluid">
 		<div id="login-form" className="row login main-content text-center">
 			<div className="col-md-4 text-center company__info">
-				<span className="login company__logo"><h2><span class="fa fa-android"></span></h2></span>
-				<h4 className="login company_title">Your Company Logo</h4>
+				<span className="login company__logo"><img id="company-logo" alt="company-logo" src={JobLogo} /></span>
+				<h4 className="login company_title">Smith's Find a Job</h4>
 			</div>
 			<div className="col-md-8 col-xs-12 col-sm-12 login login_form ">
 				<div className="container-fluid">

@@ -13,7 +13,6 @@ function App() {
   let [user, setUser] = useState(true) //if user = true? login : not login in
 
   const ProtectedRoute = (props) => {
-
     //if user is login, then show the detail page
     //if user is not login then show the login page
     if (user === true) {
@@ -22,6 +21,15 @@ function App() {
       return <Redirect to="/login" />;
     }
   };
+
+  const FourOhFourPage = () => {
+    return (
+      <div id="404page">
+        <h1>404 Not Found</h1>
+      </div>
+    );
+  };
+  
 
 
   return (
@@ -33,6 +41,7 @@ function App() {
         <Route path="/jobs" component={Jobs}/>
         <Route path="/login" component={Login}/>
         <Route path="/" component={Jobs}/>
+        <Route path="*" component={FourOhFourPage} />
  </Switch>
 
     </div>

@@ -1,25 +1,21 @@
 import React from 'react'
 import {Row, Col, Badge} from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 import Moment from 'react-moment';
-
-const jobSelect = () =>{
-    console.log("You select this job")
-}
-
 
 
 export default function JobCard(props) {
     return (
-        <div className="job-content" onClick={() => jobSelect()}>
+        <div className="job-content">
         <Row>
           <Col md={2}>
             <div className="jobcard-logo">
-              <img src={props.job.img} />
+              <img alt={props.job.title} src={props.job.img} />
             </div>
           </Col>
           <Col md={8}>
             <div className="jobcard-descriptions">
-              <h2 className="jobcard-title">{props.job.title}</h2>
+              <Link style={{ color: "black" }}  to={`/jobs/${props.id}` }><h2 className="jobcard-title">{props.job.title}</h2></Link>
               <div>$ {props.job.salary}</div>
               <div>
                 <ul className="benefit-list">
