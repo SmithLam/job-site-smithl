@@ -37,10 +37,10 @@ function App() {
 
  <Switch>
         <ProtectedRoute path="/jobs/:id" render={(props)=>< Details {...props}/>}/>
-        <Route path="/jobs/:id" component={Details}/>
-        <Route path="/jobs" component={Jobs}/>
-        <Route path="/login" component={Login}/>
-        <Route path="/" component={Jobs}/>
+        <Route exact={true} path="/jobs/:id" component={Details}/>
+        <Route exact={true} path="/jobs" component={Jobs}/>
+        <Route exact={true} path="/login" component={Login}/>
+        <Route exact={true} path="/" component={Jobs}/>
         <Route path="*" component={FourOhFourPage} />
  </Switch>
 
