@@ -3,7 +3,7 @@ import {Nav, Navbar, Form, FormControl, Button} from 'react-bootstrap'
 import JobLogo from './job-logo2.png'
 
 
-export default function NavigationBar() {
+export default function NavigationBar(props) {
     return (
         <Navbar className="sticky-top"collapseOnSelect expand="lg" bg="dark" variant="dark">
   <Navbar.Brand href="/jobs">
@@ -20,9 +20,8 @@ export default function NavigationBar() {
   <Navbar.Collapse id="responsive-navbar-nav">
   <Nav className="mr-auto"/>
   
-  <Form inline>
-      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-      <Button variant="outline-secondary">Search</Button>
+  <Form inline onSubmit={(event) => {event.preventDefault(); props.handleSearch(event, props.keyword); props.setKeyword("")}}>
+      <FormControl type="text" placeholder="Search" className="mr-sm-2" value={props.keyword} onChange={(event) => props.setKeyword(event.target.value)}/>
     </Form>
   </Navbar.Collapse>
 </Navbar>
