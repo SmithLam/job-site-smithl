@@ -7,7 +7,7 @@ import Moment from 'react-moment';
 export default function JobCard(props) {
     return (
         <div className="job-content">
-        <Row>
+        <Row className="job-card-row">
           <Col md={2}>
             <div className="jobcard-logo">
               <img alt={props.job.title} src={props.job.img} />

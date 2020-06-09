@@ -45,6 +45,11 @@ border-radius: 5px;
   border-radius: 5px;
 }
 
+.job-card-row{
+	width:100%;
+	height:100%;
+}
+
 .job-content:hover{
   border: 2px solid #e7e7e7;
   background-color: lightcoral !important;
