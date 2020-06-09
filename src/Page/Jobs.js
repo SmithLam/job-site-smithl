@@ -54,7 +54,7 @@ export default function Jobs() {
         <div>
        <Navigation handleSearch={handleSearch} keyword={keyword} setKeyword={setKeyword}></Navigation>
        <div id="job-list"><center><span id="job-headline">6 IT Jobs in Vietnam for you</span></center>
-       <div id="job-list-check">{jobs && jobs.map((job) => <JobCard job={job} id={job.id}/>)}</div>
+       <div id="job-list-check">{jobs.map((job) => <JobCard job={job} id={job.id}/>)}</div>
        </div>
         </div>
     )
