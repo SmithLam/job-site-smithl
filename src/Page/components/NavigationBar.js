@@ -5,7 +5,7 @@ import JobLogo from './job-logo2.png'
 
 export default function NavigationBar(props) {
     return (
-        <Navbar className="sticky-top"collapseOnSelect expand="lg" bg="dark" variant="dark">
+  <Navbar className="sticky-top" collapseOnSelect expand="lg" bg="dark" variant="dark">
   <Navbar.Brand href="/jobs">
       <img
         src={JobLogo}

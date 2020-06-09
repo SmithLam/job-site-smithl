@@ -6,7 +6,7 @@
 }
 
 #job-list-check{
-  max-width: 755px;
+	max-width: 100vh;
   display: inline-block;
   margin: 0 auto;
   padding: 0 10px;
@@ -25,11 +25,11 @@ min-width: 45px;
 padding: 2px;
 margin-right:0px;
 text-align: center;
+border-radius: 5px;
 }
 
 .job-content{
   display: flex;
-  z-index: 3;
   max-width: 100vh;
   justify-content: space-between;
   border-top: 2px solid #e7e7e7;
@@ -42,6 +42,7 @@ text-align: center;
   -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
   margin-bottom: -2px;
+  border-radius: 5px;
 }
 
 .job-content:hover{
