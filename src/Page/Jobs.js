@@ -15,6 +15,7 @@ const BACKEND_SERVER_URL = process.env.REACT_APP_BACKEND_SERVER_URL
 export default function Jobs() {
   let history = useHistory();
   let query = useQuery();
+  let tempArray = []
 
     const [jobs, setJobs] = useState([])
     const [originalJobs, setOriginalJobs] = useState([])
@@ -25,18 +26,25 @@ export default function Jobs() {
         let data = await fetch(url);
         let result = await data.json();
         console.log(result)
-        setJobs(result);
-        setOriginalJobs(result)
+        console.log(query.get(QUERYSTR_PREFIX))
+        console.log(keyword)
+        setOriginalJobs(result)//for original data
+        setJobs(result);//for showing the data
+        tempArray = result
+        handleSearch()
       };
     
       const handleSearch = (event) => {
-        let filteredJobs = originalJobs;
         if (event) {
           event.preventDefault();
           history.push(`/jobs/?${QUERYSTR_PREFIX}=${encodeURIComponent(keyword)}`);
         }
+        if (tempArray.length === 0){
+          tempArray = originalJobs
+        }
+        let filteredJobs = tempArray;
         if (keyword) {
-          filteredJobs = originalJobs.filter(job =>
+          filteredJobs = tempArray.filter(job =>
             job.title.toLowerCase().includes(keyword.toLowerCase())
           );
         }
