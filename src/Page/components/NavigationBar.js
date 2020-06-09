@@ -14,7 +14,7 @@ export default function NavigationBar(props) {
         className="d-inline-block align-top"
         alt="Job Logo"
       />
-      IT Jobs
+      Smith's Find IT Jobs
     </Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
