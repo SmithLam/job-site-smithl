@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import Navigation from "./components/NavigationBar";
 import JobLogo from "./components/job-logo2.png";
 import { useHistory, useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function Login() {
+  let state = useSelector((state) => state);
   let dispatch = useDispatch();
   let history = useHistory();
   let [email, setEmail] = useState("");
@@ -12,9 +13,14 @@ export default function Login() {
 
   const login = (event) => {
     event.preventDefault();
+        console.log("what is state.jobID in login", state.jobID);
     let user = { email: email, password: password };
     dispatch({ type: "LOGIN", payload: user });
-    history.push(`/jobs`);
+    if (state.jobID !==  null) {
+      history.push(`/jobs/${state.jobID}`);
+    } else {
+      history.push(`/`);
+    }
   };
 
   return (
@@ -86,13 +92,13 @@ export default function Login() {
           </div>
         </div>
       </div>
-        <div className="cheat-box">
-          For testing purpose, please input:
-          <br />
-          Email: smithlam@gmail.com
-          <br />
-          Password: 123456
-        </div>
+      <div className="cheat-box">
+        For testing purpose, please input:
+        <br />
+        Email: smithlam@gmail.com
+        <br />
+        Password: 123456
+      </div>
     </div>
   );
 }

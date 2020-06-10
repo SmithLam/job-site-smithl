@@ -9,10 +9,15 @@ export default function NavigationBar(props) {
   let dispatch = useDispatch();
   let history = useHistory();
 
+  const goHomePage = (event) => {
+    event.preventDefault();
+    history.push(`/`);
+  };
+
   const logout = (event) => {
     event.preventDefault();
     dispatch({ type: "LOGOUT" });
-    history.push(`/jobs`);
+    history.push(`/`);
   };
 
   const logInPage = (event) => {
@@ -28,7 +33,7 @@ export default function NavigationBar(props) {
       bg="dark"
       variant="dark"
     >
-      <Navbar.Brand href="/jobs">
+      <Navbar.Brand onClick={(event) => goHomePage(event)}>
         <img
           src={JobLogo}
           width="50"

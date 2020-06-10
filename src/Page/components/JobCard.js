@@ -1,12 +1,15 @@
 import React from "react";
 import { Row, Col, Badge, Button } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import Moment from "react-moment";
 
 export default function JobCard(props) {
   let history = useHistory();
+  let dispatch = useDispatch()
 
   const selectJob = (event) => {
+    dispatch({ type:"select-job", payload: props.id })
     history.push(`/jobs/${props.id}`);
   };
 
@@ -20,9 +23,7 @@ export default function JobCard(props) {
         </Col>
         <Col md={8}>
           <div className="jobcard-descriptions">
-            <Link style={{ color: "black" }} to={`/jobs/${props.id}`}>
               <h2 className="jobcard-title">{props.job.title}</h2>
-            </Link>
             <div>$ {props.job.salary}</div>
             <div>
               <ul className="benefit-list">
