@@ -159,12 +159,11 @@ form {
 }
 
 .cheat-box {
-    margin: 0 auto;
-    text-align: left;
-    display: flex;
-    justify-content: center;
+  margin: 0 auto;
+  text-align: left;
+  display: flex!important;
+  justify-content: center!important;
 }
-
 
 /* end login-form */
 
