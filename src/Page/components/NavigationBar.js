@@ -1,8 +1,24 @@
 import React from "react";
 import { Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
 import JobLogo from "./job-logo2.png";
+import { Link, useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function NavigationBar(props) {
+  let state = useSelector((state) => state);
+  let dispatch = useDispatch();
+  let history = useHistory();
+
+  const logout = (event) => {
+    event.preventDefault();
+    dispatch({ type: "LOGOUT" });
+  };
+
+  const logInPage = (event) => {
+    event.preventDefault();
+    history.push(`/login`);
+  };
+
   return (
     <Navbar
       className="sticky-top"
@@ -40,6 +56,18 @@ export default function NavigationBar(props) {
             value={props.keyword}
             onChange={(event) => props.setKeyword(event.target.value)}
           />
+          {state.user.isAuthenticated === true ? (
+            <Button onClick={(event) => logout(event)} variant="outline-danger">
+              Logout
+            </Button>
+          ) : (
+            <Button
+              onClick={(event) => logInPage(event)}
+              variant="outline-danger"
+            >
+              Login
+            </Button>
+          )}
         </Form>
       </Navbar.Collapse>
     </Navbar>

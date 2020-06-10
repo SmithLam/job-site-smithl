@@ -15,7 +15,7 @@ const BACKEND_SERVER_URL = process.env.REACT_APP_BACKEND_SERVER_URL;
 export default function Details(props) {
   const { id } = useParams();
   const [jobs, setJobs] = useState(null);
-  console.log(jobs);
+
 
   const getData = async () => {
     let url = `${BACKEND_SERVER_URL}/jobs/${id}`;

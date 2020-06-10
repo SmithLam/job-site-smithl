@@ -1,8 +1,24 @@
-import React from "react";
+import React,{useState} from "react";
 import Navigation from "./components/NavigationBar";
 import JobLogo from "./components/job-logo2.png";
+import { useHistory, useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 
 export default function Login() {
+  let dispatch = useDispatch()
+  let history = useHistory()
+  let [email, setEmail] = useState("")
+  let [password, setPassword] = useState("");
+
+const login = (event) => {
+  event.preventDefault();
+  let user = { email: email, password: password };
+  dispatch({ type: "LOGIN", payload: user });
+  history.goBack();
+};
+
+
   return (
     <div>
       <Navigation />
@@ -24,10 +40,12 @@ export default function Login() {
                   <div className="login row">
                     <input
                       type="text"
-                      name="username"
-                      id="username"
+                      name="email"
+                      id="email"
                       className="login form__input"
-                      placeholder="Username"
+                      placeholder="Email"
+                      value={email}
+                      onChange={(event) => setEmail(event.target.value)}
                     />
                   </div>
                   <div className="login row">
@@ -38,6 +56,8 @@ export default function Login() {
                       id="password"
                       className="login form__input"
                       placeholder="Password"
+                      value={password}
+                      onChange={(event) => setPassword(event.target.value)}
                     />
                   </div>
                   <div className="login row">
@@ -50,7 +70,7 @@ export default function Login() {
                     <label for="remember_me">Remember Me!</label>
                   </div>
                   <div className="login row">
-                    <input type="submit" value="Submit" className="login btn" />
+                    <input onClick={(event) => login(event)}type="submit" value="Submit" className="login btn" />
                   </div>
                 </form>
               </div>
