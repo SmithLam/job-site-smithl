@@ -20,15 +20,6 @@ export default function Login() {
   return (
     <div>
       <Navigation />
-      <center>
-        <div id="cheat-box">
-          For testing purpose, please input:
-          <br />
-          Email: smithlam@gmail.com
-          <br />
-          Password: 123456
-        </div>
-      </center>
       <div className="container-fluid">
         <div id="login-form" className="row login main-content text-center">
           <div className="col-md-4 text-center company__info">
@@ -95,6 +86,15 @@ export default function Login() {
           </div>
         </div>
       </div>
+      <center>
+        <div id="cheat-box">
+          For testing purpose, please input:
+          <br />
+          Email: smithlam@gmail.com
+          <br />
+          Password: 123456
+        </div>
+      </center>
     </div>
   );
 }
