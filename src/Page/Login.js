@@ -14,7 +14,7 @@ export default function Login() {
     event.preventDefault();
     let user = { email: email, password: password };
     dispatch({ type: "LOGIN", payload: user });
-    history.goBack();
+    history.push(`/jobs`);
   };
 
   return (
