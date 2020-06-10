@@ -16,7 +16,6 @@ export default function Details(props) {
   const { id } = useParams();
   const [jobs, setJobs] = useState(null);
 
-
   const getData = async () => {
     let url = `${BACKEND_SERVER_URL}/jobs/${id}`;
     let data = await fetch(url);

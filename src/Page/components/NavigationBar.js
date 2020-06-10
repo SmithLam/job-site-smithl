@@ -12,6 +12,7 @@ export default function NavigationBar(props) {
   const logout = (event) => {
     event.preventDefault();
     dispatch({ type: "LOGOUT" });
+    history.push(`/jobs`);
   };
 
   const logInPage = (event) => {

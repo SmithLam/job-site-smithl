@@ -10,8 +10,7 @@ import Details from "./Page/Details";
 
 function App() {
   // let [user, setUser] = useState(true); //if user = true? login : not login in
-  let state = useSelector((state) => state)
-
+  let state = useSelector((state) => state);
 
   const ProtectedRoute = (props) => {
     //if user is login, then show the detail page

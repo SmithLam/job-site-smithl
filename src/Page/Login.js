@@ -1,27 +1,34 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import Navigation from "./components/NavigationBar";
 import JobLogo from "./components/job-logo2.png";
 import { useHistory, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-
 export default function Login() {
-  let dispatch = useDispatch()
-  let history = useHistory()
-  let [email, setEmail] = useState("")
+  let dispatch = useDispatch();
+  let history = useHistory();
+  let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
 
-const login = (event) => {
-  event.preventDefault();
-  let user = { email: email, password: password };
-  dispatch({ type: "LOGIN", payload: user });
-  history.goBack();
-};
-
+  const login = (event) => {
+    event.preventDefault();
+    let user = { email: email, password: password };
+    dispatch({ type: "LOGIN", payload: user });
+    history.goBack();
+  };
 
   return (
     <div>
       <Navigation />
+      <center>
+        <div id="cheat-box">
+          For testing purpose, please input:
+          <br />
+          Email: smithlam@gmail.com
+          <br />
+          Password: 123456
+        </div>
+      </center>
       <div className="container-fluid">
         <div id="login-form" className="row login main-content text-center">
           <div className="col-md-4 text-center company__info">
@@ -70,7 +77,12 @@ const login = (event) => {
                     <label for="remember_me">Remember Me!</label>
                   </div>
                   <div className="login row">
-                    <input onClick={(event) => login(event)}type="submit" value="Submit" className="login btn" />
+                    <input
+                      onClick={(event) => login(event)}
+                      type="submit"
+                      value="Submit"
+                      className="login btn"
+                    />
                   </div>
                 </form>
               </div>
