@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import "bootstrap/dist/css/bootstrap.min.css"
-import {Switch, Route, Redirect} from 'react-router-dom'
-import Jobs from './Page/Jobs'
-import Login from './Page/Login'
-import Details from './Page/Details'
-
+import React, { useEffect, useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Switch, Route, Redirect } from "react-router-dom";
+import Jobs from "./Page/Jobs";
+import Login from "./Page/Login";
+import Details from "./Page/Details";
 
 function App() {
-
-  let [user, setUser] = useState(true) //if user = true? login : not login in
+  let [user, setUser] = useState(true); //if user = true? login : not login in
 
   const ProtectedRoute = (props) => {
     //if user is login, then show the detail page
@@ -29,21 +27,20 @@ function App() {
       </div>
     );
   };
-  
-
 
   return (
     <div>
-
- <Switch>
-        <ProtectedRoute path="/jobs/:id" render={(props)=>< Details {...props}/>}/>
-        <Route exact={true} path="/jobs/:id" component={Details}/>
-        <Route exact={true} path="/jobs" component={Jobs}/>
-        <Route exact={true} path="/login" component={Login}/>
-        <Route exact={true} path="/" component={Jobs}/>
+      <Switch>
+        <ProtectedRoute
+          path="/jobs/:id"
+          render={(props) => <Details {...props} />}
+        />
+        <Route exact={true} path="/jobs/:id" component={Details} />
+        <Route exact={true} path="/jobs" component={Jobs} />
+        <Route exact={true} path="/login" component={Login} />
+        <Route exact={true} path="/" component={Jobs} />
         <Route path="*" component={FourOhFourPage} />
- </Switch>
-
+      </Switch>
     </div>
   );
 }

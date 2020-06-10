@@ -1,40 +1,46 @@
-import React,{useState, useEffect} from 'react'
-import Navigation from './components/NavigationBar'
-import {useParams} from 'react-router-dom'
+import React, { useState, useEffect } from "react";
+import Navigation from "./components/NavigationBar";
+import { useParams } from "react-router-dom";
 import { Badge, Button, Row, Col, Container } from "react-bootstrap";
-import { faMapMarker, faCalendar, faDollarSign } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMapMarker,
+  faCalendar,
+  faDollarSign,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Moment from 'react-moment';
+import Moment from "react-moment";
 
-const BACKEND_SERVER_URL = process.env.REACT_APP_BACKEND_SERVER_URL
+const BACKEND_SERVER_URL = process.env.REACT_APP_BACKEND_SERVER_URL;
 
 export default function Details(props) {
+  const { id } = useParams();
+  const [jobs, setJobs] = useState(null);
+  console.log(jobs);
 
-    const {id} = useParams()
-    const [jobs, setJobs] = useState(null)
-    console.log(jobs)
+  const getData = async () => {
+    let url = `${BACKEND_SERVER_URL}/jobs/${id}`;
+    let data = await fetch(url);
+    let result = await data.json();
+    console.log(result);
+    console.log(result.district);
+    setJobs(result);
+  };
 
+  useEffect(() => {
+    getData();
+  }, []);
 
-    const getData = async () => {
-        let url =`${BACKEND_SERVER_URL}/jobs/${id}`;
-        let data = await fetch(url);
-        let result = await data.json();
-        console.log(result)
-        console.log(result.district)
-        setJobs(result)
-      };
-    
-     useEffect(() => {
-        getData();
-      }, []);
-    
-    if(jobs === null){
-        return <div><Navigation/></div>
-    }
+  if (jobs === null) {
     return (
-        <div>
-            <Navigation/>
-            <Container className="job-section">
+      <div>
+        <Navigation />
+      </div>
+    );
+  }
+  return (
+    <div>
+      <Navigation />
+      <Container className="job-section">
         <div className="white-container">
           <Row>
             <Col>
@@ -44,9 +50,7 @@ export default function Details(props) {
               <h2>{jobs.title}</h2>
               <div>
                 {jobs.tags.map((tag) => (
-                  <Badge variant="success mr-2">
-                    {tag}
-                  </Badge>
+                  <Badge variant="success mr-2">{tag}</Badge>
                 ))}
               </div>
               <div style={{ paddingTop: "10px", color: "grey" }}>
@@ -68,7 +72,7 @@ export default function Details(props) {
                   icon={faCalendar}
                   style={{ marginRight: "10px" }}
                 />
-              <Moment fromNow>{jobs.time}</Moment>
+                <Moment fromNow>{jobs.time}</Moment>
               </div>
               <div style={{ paddingTop: "20px" }}>
                 <h2>Benefit</h2>
@@ -92,8 +96,6 @@ export default function Details(props) {
           </Row>
         </div>
       </Container>
-        </div>
-    )
+    </div>
+  );
 }
-
-
