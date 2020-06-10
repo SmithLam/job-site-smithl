@@ -1,11 +1,17 @@
 import React from "react";
-import { Row, Col, Badge } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Row, Col, Badge, Button } from "react-bootstrap";
+import { Link, useHistory } from "react-router-dom";
 import Moment from "react-moment";
 
 export default function JobCard(props) {
+  let history = useHistory();
+
+  const selectJob = (event) => {
+    history.push(`/jobs/${props.id}`);
+  };
+
   return (
-    <div className="job-content">
+    <div className="job-content" onClick={(event) => selectJob(event)}>
       <Row className="job-card-row">
         <Col md={2}>
           <div className="jobcard-logo">
