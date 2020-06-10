@@ -86,7 +86,7 @@ export default function Login() {
           </div>
         </div>
       </div>
-        <div id="cheat-box">
+        <div className="cheat-box">
           For testing purpose, please input:
           <br />
           Email: smithlam@gmail.com
