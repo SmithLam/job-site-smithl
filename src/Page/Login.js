@@ -86,7 +86,6 @@ export default function Login() {
           </div>
         </div>
       </div>
-      <center>
         <div id="cheat-box">
           For testing purpose, please input:
           <br />
@@ -94,7 +93,6 @@ export default function Login() {
           <br />
           Password: 123456
         </div>
-      </center>
     </div>
   );
 }
