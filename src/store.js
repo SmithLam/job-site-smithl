@@ -26,6 +26,7 @@ function reducer(state = initialstate, action) {
   }
   if (action.type === "LOGOUT") {
     state.user.isAuthenticated = false;
+    state.jobID = initialstate;
   }
   return state;
 }
