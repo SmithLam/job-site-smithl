@@ -11,11 +11,11 @@ const initialstate = {
 
 function reducer(state = initialstate, action) {
   if (action.type === "select-job") {
-    state.jobID = action.payload;
+    state.jobID = { ...action.payload };
     console.log("what is job", state.jobID);
   }
   if (action.type === "LOGIN") {
-    state.user = action.payload;
+    state.user = {...action.payload };
     if (
       state.user.email === "smithlam@gmail.com" &&
       state.user.password === "123456"
