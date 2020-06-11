@@ -8,8 +8,8 @@ import { Provider } from "react-redux";
 import store from "./store";
 
 ReactDOM.render(
-  // better to wrap the Provider around router to give all state to all pages in router 
-  <Provider store={store}> 
+  // better to wrap the Provider around router to give all state to all pages in router
+  <Provider store={store}>
     <Router>
       <App />
     </Router>
